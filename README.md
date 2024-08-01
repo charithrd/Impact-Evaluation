@@ -37,3 +37,9 @@ ETL framework has been developed using Azure Databricks cloud platform, adopting
 
 #### 2.3.3 Conclusion
 In conclusion, implementing this ETL Framework and reporting has yielded significant benefits by eliminating manual user intervention and enhancing reporting accuracy. Thus, maintenance of the data model requires a team member with technical experience.
+
+## Chapter 3 ETL Pipeline and Automation
+
+Below is a high-level ETL overview of the data model.
+
+![ETL](Assets/ETL.png)
