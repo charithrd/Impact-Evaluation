@@ -45,3 +45,14 @@ In conclusion, implementing this ETL Framework and reporting has yielded signifi
 Below is a high-level ETL overview of the data model.
 
 ![ETL](Assests/ETL.png)
+
+Databricks notebook is attached to a workflow within a cluster. This is scheduled to run as per the business's desired time frames.
+
+![ETL](Assests/DWorkflow.png)
+
+## Chapter 4 Data Structure
+
+Below are the metadata characteristics of the final data load to the Power BI model.
+
+![ETL](Assests/Metadata.png)
+
