@@ -42,4 +42,4 @@ In conclusion, implementing this ETL Framework and reporting has yielded signifi
 
 Below is a high-level ETL overview of the data model.
 
-![ETL](Assets/ETL.png)
+![ETL](Assests/ETL.png)
