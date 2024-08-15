@@ -1,3 +1,8 @@
+<p align="left">
+    <a href="https://github.com/charithrd/Impact-Evaluation/commits/master">
+    <img src="https://img.shields.io/github/last-commit/charithrd/Impact-Evaluation.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+
 ![Header Imagery](Assests/ImpactEvaluation.jfif)
 
 ## Table of Contents
@@ -12,7 +17,7 @@
 
 
 
-## Chapter 1 Executive Summary
+> ## Chapter 1 Executive Summary
 
 Owing to the volatility inherent in international shipping routes, it is imperative for global retailers to accurately monitor their inventory in transit to ensure they can adequately meet customer demand.
 
@@ -20,7 +25,7 @@ KPMG (2023) research states that “global and local retailers may need to revie
 
 This explores Impact evaluation on an automated business project deployed in 2023, analysing vessels en route to UK ports (stock due weekly). Adhering to the Data Protection Act 2018 (Legislation.gov.uk, 2018), business data are not published and have been anonymized.
 
-## Chapter 2 Project Overview
+> ## Chapter 2 Project Overview
 To stay competitive many retailers have moved ‘their manufacturing to low-cost countries’ (Arrigo, 2020). Landing these products on the shop floor on time involves major planning for the logistics team.
 
 Adding more complexity to this context are shipping disruptions in international shipping routes and ports. Hence actively monitoring stock arrivals and adjusting warehouse planning are vital to improve sales and customer satisfaction.
@@ -50,7 +55,7 @@ ETL framework has been developed using Azure Databricks cloud platform, adopting
 #### 2.3.3 Conclusion
 In conclusion, implementing this ETL Framework and reporting has yielded significant benefits by eliminating manual user intervention and enhancing reporting accuracy. Thus, maintenance of the data model requires a team member with technical experience.
 
-## Chapter 3 ETL Pipeline and Automation
+> ## Chapter 3 ETL Pipeline and Automation
 
 Below is a high-level ETL overview of the data model.
 
