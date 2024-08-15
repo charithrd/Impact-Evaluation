@@ -60,7 +60,7 @@ In conclusion, implementing this ETL Framework and reporting has yielded signifi
 
 ![ETL](Assests/ETL.png)
 
-Above high level ETL Pipeline is summarized as follows.
+Above, high level ETL Pipeline is summarized as follows.
 
 ### Source: 
  - Structured Azure SQL databases are the primary source.
@@ -79,13 +79,25 @@ Azure Databricks
 •	Finally, the unity catalogue output is connected to Power BI for visualization.
 
 
-Databricks notebook is attached to a workflow within a cluster. This is scheduled to run as per the business's desired time frames.
+### Workflow Automation:
+
+ - Databricks notebook is attached to a workflow within a cluster.
+ - This job is scheduled to run as per the business's desired time frames.
+ - Any workflow failures will get notified to the Admin users via work email.
 
 ![ETL](Assests/DWorkflow.png)
 
-## Chapter 4 Data Structure
+> ## Chapter 4 Data Structure
 
 Below are the metadata characteristics of the final data load to the Power BI model.
 
 ![ETL](Assests/Metadata.png)
+
+
+> ## Chapter 5: Building the Data Model
+
+### 5.1 Data Selection and Preparation
+
+ - The ‘Create or Replace Table’ statement creates a new table called ‘Vessel_En_Route’.
+ - Essential fields are added to the select statement.
 
