@@ -55,11 +55,29 @@ ETL framework has been developed using Azure Databricks cloud platform, adopting
 #### 2.3.3 Conclusion
 In conclusion, implementing this ETL Framework and reporting has yielded significant benefits by eliminating manual user intervention and enhancing reporting accuracy. Thus, maintenance of the data model requires a team member with technical experience.
 
+
 > ## Chapter 3 ETL Pipeline and Automation
 
-Below is a high-level ETL overview of the data model.
-
 ![ETL](Assests/ETL.png)
+
+Above high level ETL Pipeline is summarized as follows.
+
+### Source: 
+ - Structured Azure SQL databases are the primary source.
+   
+### Data Governance: 
+ - Azure Active Directory (AD) is the security layer before extraction.
+ - Considering data privacy only the necessary data is processed, and no personal data has been utilized for this project.
+   
+### ETL Flow:
+
+Azure Databricks
+•	Using SQL Notebook key data is extracted from the source.
+•	Data is then transformed using deduplication, cleaning, and aggregation techniques enabling further analysis.
+•	Azure Notebook is attached to a workflow automating the job run.
+•	Notebook output is loaded into Databricks Unity catalogue.
+•	Finally, the unity catalogue output is connected to Power BI for visualization.
+
 
 Databricks notebook is attached to a workflow within a cluster. This is scheduled to run as per the business's desired time frames.
 
