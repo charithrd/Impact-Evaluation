@@ -1,3 +1,8 @@
+<p align="left">
+    <a href="https://github.com/charithrd/Impact-Evaluation/commits/master">
+    <img src="https://img.shields.io/github/last-commit/charithrd/Impact-Evaluation.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+
 ![Header Imagery](Assests/ImpactEvaluation.jfif)
 
 ## Table of Contents
