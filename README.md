@@ -337,3 +337,10 @@ d.findayofweek
 
  - The ‘Vessel_En_Route’ table created in the first step is joined with the ‘Vessel_ETAs’ table.
  - Additionally, integrating the 'imports.fin_dates_with_keys' table, a calendar table, facilitates the identification of the current financial week for reporting purposes.
+
+```sql
+From Vessel_En_Route as v
+  Left Join Vessel_ETAs as eta on trim(eta.Voyage) = trim(v.Voyage)
+  Left Join imports.fin_dates_with_keys as d on d.date  = eta.CurrArrivedAtPortDate
+```
+
