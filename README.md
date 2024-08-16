@@ -35,6 +35,10 @@
 
 [6. Power BI Reporting](#Chapter-6-Power-BI-Reporting)
 
+[7. Project Reflection](#Chapter-7-Project-Reflection)
+
+[Bibliography](#Bibliography)
+
 
 > ## Chapter 1 Executive Summary
 
@@ -356,5 +360,59 @@ From Vessel_En_Route as v
  - The reporting page below lets stakeholders see the number of containers due weekly and their respective retail sales value (RSV £).
  - Distinct vessels count by arrival port is presented as a stacked bar chart to easily distinguish the port congestion and avoid unnecessary detention and demurrage costs. 
  - Furthermore, the number of containers due each weekday is listed in a table allowing smooth warehouse workload planning.
+
+
+
+ - Matrix data tables are used to illustrate the list view of container arrivals.
+ - This visual is used per the stakeholder request allowing them to easily extract data into Excel files and share it with the wider business.
+
+
+> ## Chapter 7 Project Reflection
+
+* In line with Driscoll (2007), the ‘What’ model project work is reflected below.
+
+#### What:
+
+ - This project entails an automated business solution to calculate stock in transit allowing proactive warehouse resource planning and minimising detention and demurrage costs.
+
+#### So What:
+ - The precursor of this project was exercised using Excel spreadsheets with manual user intervention, which was prone to human error and report scalability issues with rapid business growth.
+ - An automated Extract, Transformation and Load (ETL) workflow was deployed with Azure Databricks and Power BI platforms.
+
+ - Drawbacks identified from the previous process such as report scalability and accuracy issues were eliminated.
+ - This has granted reliability to decision-making and saved approximately 156 hours per annum, assuming reports are only produced once a week. The model can be scheduled for more frequent runs generating further business savings. 
+
+#### Now What:
+ - The technical nature of this ETL workflow requires a dedicated data engineer for future developments.
+ - This model can be further developed by incorporating a Time series machine learning algorithm to predict future weeks' volume extending the forward forecasting capability.
+
+
+> ## Bibliography
+
+Arrigo, E., 2020. Global sourcing in fast fashion retailers: Sourcing locations and sustainability considerations. Sustainability, 12(2), p.1.
+
+BPP School of Technology. (2024) ‘Topic 8 Data Engineering Tools’ [Recorded lecture], Module 4: Data Engineering. BPP University London 4 April. Available at: https://learn.bpp.com/mod/scorm/player.php?a=13188&currentorg=articulate_rise&scoid=23976&newattempt=on  (Accessed: 13 June 2024)
+
+Chakraborty, M.S., Bondyopadhyay, A. and Ghosh, T.K., 2021. Towards more efficient 3NF determination using reduced functional dependency sets. Advances and Applications in Mathematical Sciences, 11(1), Available through: https://www.mililink.com/upload/article/297473750aams_vol_2011_september_2021_a50_p2937-2945_m._s._chakraborty,_a._bondyopadhyay_and_t._k._ghosh.pdf [Accessed 15 June 2024].
+
+Dayaratne, C. (2024). ‘Workflow created using Azure Databricks’. Module 5: Data Science Professional Practice. BPP University. Unpublished essay.
+
+Dayaratne, C. (2024). ‘ETL Pipeline designed using draw.io’. Module 5: Data Science Professional Practice. BPP University. Unpublished essay.
+
+Driscoll, J. (2007). Practising clinical supervision: a reflective approach for healthcare professionals. 2nd ed. Edinburgh: Baillière Tindall Elsevie.
+
+KPMG, 2023. The supply chain trends shaking up 2023. [online] Available at: https://kpmg.com/xx/en/home/insights/2022/12/the-supply-chain-trends-shaking-up-2023.html [Accessed 29 June 2024]
+
+Kushtagi, R., (2023). Data Deduplication Strategies. [online]. Medium. Last Updated: 2 August 2023. Available at:https://medium.com/@roopa.kushtagi/data-deduplication-strategies-2256f643066e#:~:text=Deduplicated%20data.,-Method%202%3A%20Using&text=We%20can%20use%20GROUP%20BY,GROUP%20BY%20to%20remove%20duplicates. [Accessed 16 June 2024].
+
+Legislation.gov.uk, 2018. Data Protection Act 2018. [Online] Available at: https://www.legislation.gov.uk/ukpga/2018/12/part/3/chapter/2 [Accessed 12 June 2024].
+
+Meteor Space, 2022. Statistics That Prove How Your Delivery Speed Impacts Your Business. [online] Available at: https://www.meteorspace.com/2022/08/25/statistics-that-prove-how-your-delivery-speed-impacts-your-business/ [Accessed 29 June 2024]
+
+Microsoft.com, 2023. What is change data capture (CDC)?. [online] Available at: https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-ver16 [Accessed 19 June 2024]
+
+Palmer, M., 2024. Understanding ETL. 1st ed. Sebastopol: O’Reilly Media, Inc.
+
+Wickham, H., 2014. Tidy Data. Journal of Statistical Software, 10(13), Available through: http://vita.had.co.nz/papers/tidy-data.html [Accessed 15 June 2024].
 
 
