@@ -111,12 +111,24 @@ Below are the metadata characteristics of the final data load to the Power BI mo
 ![ETL](Assests/Metadata.png)
 
 
+
 > ## Chapter 5 Building the Data Model
+
 
 ### 5.1 Data Selection and Preparation
 
  - The ‘Create or Replace Table’ statement creates a new table called ‘Vessel_En_Route’.
  - Essential fields are added to the select statement.
+
+
+### 5.2 Data Manipulation
+
+ - Below manipulation steps “includes variable-by-variable transformation, as well as aggregation” (Wickham, 2014).
+ - Converting Datetime fields such as v. vy_arrive_date into a date field.
+ - A case statement converts warehouse codes in the ‘Planned_dest_code’ field into Warehouse names. 
+ - Using an array join statement ContractNo and DeliveryNo fields are concatenated into a single column. This step helps users to search warehouse deliveries easily.
+ - Retail Sales Value (RSV) – By multiplying the balance left with the retail sell price we determine the row (option) level retail value.
+ - Then Sum () function calculates the total sum of the product across all rows in the dataset. Finally, the data type is cast to an Integer (INT).
 
 
 ```sql
@@ -150,14 +162,6 @@ SELECT v.vy_journey_no as Voyage,
        SUM(comb.balleft * i.ret_sell_price) AS RSV
 ```
 
-### 5.2 Data Manipulation
-
- - Below manipulation steps “includes variable-by-variable transformation, as well as aggregation” (Wickham, 2014).
- - Converting Datetime fields such as v. vy_arrive_date into a date field.
- - A case statement converts warehouse codes in the ‘Planned_dest_code’ field into Warehouse names. 
- - Using an array join statement ContractNo and DeliveryNo fields are concatenated into a single column. This step helps users to search warehouse deliveries easily.
- - Retail Sales Value (RSV) – By multiplying the balance left with the retail sell price we determine the row (option) level retail value.
- - Then Sum () function calculates the total sum of the product across all rows in the dataset. Finally, the data type is cast to an Integer (INT).
 
 ### 5.3 Data Joins
 
