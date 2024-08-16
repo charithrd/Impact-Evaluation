@@ -29,6 +29,9 @@
 
 [5.3 Data Joins](#53-Data-Joins)
 
+[5.4 Vessel ETAs’ Calculation Logic](#54-Vessel-ETAs’-Calculation-Logic)
+
+[5.5 Merging Final Data View](#55-Merging-Final-Data-View)
 
 
 > ## Chapter 1 Executive Summary
@@ -255,7 +258,6 @@ This data is then joined with the ‘Vessels’ table we created earlier by voya
 create or replace table Vessel_ETAs
 
 Select
-
 v.Vessel_name,
 v.Voyage,
 Orig.ArrivedAtPortDate as OrigArrivedAtPortDate,
@@ -292,4 +294,8 @@ On Trim(Current.Vessel) = Trim(v.Voyage)
 and Current.DescOrder = '1'
 
 ```
+
+### 5.5 Merging Final Data View
+
+ - A new table is created called ‘imports. Vessel_En_Route_Master_Current_WK’.
 
