@@ -361,11 +361,12 @@ From Vessel_En_Route as v
  - Distinct vessels count by arrival port is presented as a stacked bar chart to easily distinguish the port congestion and avoid unnecessary detention and demurrage costs. 
  - Furthermore, the number of containers due each weekday is listed in a table allowing smooth warehouse workload planning.
 
-
+![Power BI Landing Report](Assests/PBILanding.PNG)
 
  - Matrix data tables are used to illustrate the list view of container arrivals.
  - This visual is used per the stakeholder request allowing them to easily extract data into Excel files and share it with the wider business.
 
+![Power BI Report Detail](Assests/PBIInfo.PNG)
 
 > ## Chapter 7 Project Reflection
 
