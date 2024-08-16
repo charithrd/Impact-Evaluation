@@ -298,7 +298,8 @@ and Current.DescOrder = '1'
 ### 5.5 Merging Final Data View
 
  - A new table is created called ‘imports. Vessel_En_Route_Master_Current_WK’.
-
+ - Final curated data view is created with the code below.
+ 
 ```sql
 create or replace table imports.Vessel_En_Route_Master_Current_WK
 
@@ -323,15 +324,15 @@ Case When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) in (1,2,3) then 
      When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) < 0 then 'Early'
      Else 'On Time' 
      End as Days_Delay_Banding,
-,case when datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) < 0 then 'Early'
-  when datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) = 0 then 'Not Delayed'
-  else 'Delayed' 
-  end as Days_Delayed_Flag
-,d.finWeekNo as Week_Number
-,d.FinWeekSeqNo as Week_Sequence
-,d.CurrentWeekCenteredKey
-,d.dayname as Day_Name
-,d.findayofweek
+Case When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) < 0 then 'Early'
+     When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) = 0 then 'Not Delayed'
+     Else 'Delayed' 
+     End as Days_Delayed_Flag,
+d.finWeekNo as Week_Number,
+d.FinWeekSeqNo as Week_Sequence,
+d.CurrentWeekCenteredKey as CurrentWeekKey,
+d.dayname as Day_Name,
+d.findayofweek
 ```
 
 
