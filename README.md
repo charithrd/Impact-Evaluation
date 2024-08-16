@@ -247,3 +247,49 @@ This data is then joined with the ‘Vessels’ table we created earlier by voya
  - By reversing the order by criteria in the window function to descending order and joining the data to the ‘Vessels’ table, retrieving only the first record when data is organized in descending order, we can identify the current arrived-at-port date. 
 
  - These distinct records are then added to a newly created table called ‘Vessel_ETAs’.
+ - Listed below is the SQL code for the Vessel ETA logic.
+
+
+```sql
+
+create or replace table Vessel_ETAs
+
+Select
+
+v.Vessel_name,
+v.Voyage,
+Orig.ArrivedAtPortDate as OrigArrivedAtPortDate,
+Curr.ArrivedAtPortDate as CurrArrivedAtPortDate
+
+From Vessels as V
+
+Left join (select Rec_ID, 
+                  Allocated, 
+                  Vessel, 
+                  ArrivedAtPortDate, 
+                  row_number() over (partition by Vessel order by Allocated Asc) as AscOrder
+
+From ils.miniils 
+Where
+Trim(Vessel) in (Select Distinct trim(Voyage) From vessel_en_route)
+and ArrivedAtPortDate is not null) as Original
+
+On Trim(Original.Vessel) = Trim(v.Voyage)
+and Original.AscOrder = '1'
+
+Left Join (Select Rec_ID, 
+		  Allocated, 
+		  Vessel, 
+ 		  ArrivedAtPortDate, 
+                  row_number() over (partition by Vessel order by Allocated desc) as DescOrder
+
+From ils.miniils 
+Where
+Trim(Vessel) in (Select Distinct trim(Voyage) from vessel_en_route)
+and ArrivedAtPortDate is not null) as Current
+
+On Trim(Current.Vessel) = Trim(v.Voyage)
+and Current.DescOrder = '1'
+
+```
+
