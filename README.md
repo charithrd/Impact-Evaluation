@@ -85,7 +85,10 @@ Azure Databricks
  - This job is scheduled to run as per the business's desired time frames.
  - Any workflow failures will get notified to the Admin users via work email.
 
-![ETL](Assests/DWorkflow.png)
+![Databricks Workflow](Assests/DBWorkflow.PNG)
+
+![Databricks Workflow](Assests/DBAutomation.PNG)
+
 
 > ## Chapter 4 Data Structure
 
