@@ -104,3 +104,34 @@ Below are the metadata characteristics of the final data load to the Power BI mo
  - The ‘Create or Replace Table’ statement creates a new table called ‘Vessel_En_Route’.
  - Essential fields are added to the select statement.
 
+
+```sql
+create or replace table Vessel_En_Route
+
+SELECT  v.vy_journey_no as Voyage,
+       v.vy_vessel_name as Vessel_name,
+       v.vy_arrive_loc as Port_Arrival_Code,
+       date( v.vy_arrive_date) AS ArrivedDate,
+       date(comb.whsdeldate) AS WhseDelDate,
+       lu.country_code,
+       s.fm_status,
+       s.planned_dest_code,
+       Case   When trim(s.planned_dest_code) = 'P' then 'Dxxxxxxx'
+		      When trim(s.planned_dest_code) = 'D' then 'Dxx'
+			  When trim(s.planned_dest_code) = 'DF' then 'Dxxxxxxx'
+			  When trim(s.planned_dest_code) = 'H' then 'Sxxxxxxx'
+			  When trim(s.planned_dest_code) = 'X' then 'Exxxxxxx'
+			  When trim(s.planned_dest_code) = 'V' then 'Dxx'
+			  When trim(s.planned_dest_code) = 'XD' then 'Exxxxxxx'
+			  When trim(s.planned_dest_code) = 'S' then 'Sxxxxxxx'
+			  When trim(s.planned_dest_code) = 'M' then 'Txxxxxxx'
+			  When trim(s.planned_dest_code) = '56' then 'Txxxxxxx'
+			  When trim(s.planned_dest_code) = '97' then 'Txxxxxxx'
+			  else 'Other'
+			  end as Depot_Name,
+       comb.contractno,
+       comb.deliveryno,
+       array_join(array(comb.contractno , comb.deliveryno),'') As ContractDel,
+       c.vy_partner_cnt_no as Container_No,
+       SUM(comb.balleft * i.ret_sell_price) AS RSV
+```
