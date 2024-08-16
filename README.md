@@ -165,11 +165,13 @@ SELECT v.vy_journey_no as Voyage,
 
 ### 5.3 Data Joins
 
- - The primary data source of this project satisfies the third normal form (3NF). Chakraborty et al., 2021 claim that “3NF can reduce redundancies and anomalies from a relational database”.
+ - The primary data source of this project satisfies the third normal form (3NF).
+ - Chakraborty et al., 2021 claim that “3NF can reduce redundancies and anomalies from a relational database”.
    
  - The query results are constrained by the ‘WHERE’ clause.
  - To adhere to the 'Uniqueness' dimension of data quality, we have employed the 'GROUP BY' clause.
  - According to Kushtagi (2023), “data deduplication can be achieved using various methods, such as using the DISTINCT keyword, GROUP BY” clause.
+ - The code below illustrates the necessary multiple table joins to facilitate the analysis and model building.
 
 ```sql
 FROM xxxx_dss.dp_itemoption as I
