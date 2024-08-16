@@ -183,21 +183,21 @@ FROM xxxx_dss.dp_itemoption as I
    INNER JOIN xxxx_dss.dg_country as lu 
         ON ( comb.countryofdesp = lu.country_code)
             
-  LEFT OUTER JOIN xxxx_dss.fm_status as s
+   LEFT OUTER JOIN xxxx_dss.fm_status as s
         ON ( comb.contractno = s.contract_no
         AND comb.deliveryno = CAST(s.delivery_no AS INTEGER))
             
-  LEFT OUTER JOIN xxxx_dss.fm_cnt_copts as cc
+   LEFT OUTER JOIN xxxx_dss.fm_cnt_copts as cc
         ON ( cc.vy_contract_no = comb.contractno
         AND cc.vy_contract_del = comb.deliveryno
         AND cc.vy_contract_option = comb.optionno
                                   )
-  INNER JOIN xxxx_dss.fm_containers as c
+   INNER JOIN xxxx_dss.fm_containers as c
         ON ( c.vy_journey_seq_no = cc.vy_journey_seq_no
         AND c.vy_container_no = cc.vy_container_no)
             
-  LEFT OUTER JOIN xxxx_dss.fm_voyage as v
-       ON ( v.vy_journey_seq_no = c.vy_journey_seq_no )
+   LEFT OUTER JOIN xxxx_dss.fm_voyage as v
+        ON ( v.vy_journey_seq_no = c.vy_journey_seq_no )
         
 WHERE 
        comb.DtlTransportmode = 'S' --- S = SeaFreight
