@@ -33,6 +33,8 @@
 
 [5.5 Merging Final Data View](#55-Merging-Final-Data-View)
 
+[6. Power BI Reporting](#Chapter-6-Power-BI-Reporting)
+
 
 > ## Chapter 1 Executive Summary
 
@@ -343,4 +345,16 @@ From Vessel_En_Route as v
   Left Join Vessel_ETAs as eta on trim(eta.Voyage) = trim(v.Voyage)
   Left Join imports.fin_dates_with_keys as d on d.date  = eta.CurrArrivedAtPortDate
 ```
+
+ - Case statements are in operation to enrich the data quality. Arrival port codes are translated into port names.
+ - Delays in days are computed using the DATEDIFF function, and the resulting values are subsequently categorized into delay bands.
+ - Furthermore, an additional case statement classifies the delays into three categories: early, on-time, and late arrivals.
+
+
+> ## Chapter 6 Power BI Reporting
+
+ - The reporting page below lets stakeholders see the number of containers due weekly and their respective retail sales value (RSV £).
+ - Distinct vessels count by arrival port is presented as a stacked bar chart to easily distinguish the port congestion and avoid unnecessary detention and demurrage costs. 
+ - Furthermore, the number of containers due each weekday is listed in a table allowing smooth warehouse workload planning.
+
 
