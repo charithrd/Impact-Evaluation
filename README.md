@@ -234,3 +234,16 @@ Voyage
 from Vessel_En_Route
 
 ```
+
+### 5.4 Vessel ETAs’ Calculation Logic.
+
+ - Business is required to identify deviations from original vessel arrival dates (ETA) to current vessel arrival dates to plan warehouse resources and minimize detention and demurrage charges. To achieve this objective we have applied the logic below.
+
+ - We have identified a change data capture (CDC) enabled table called ‘MiniILS’, “which records activity on a database when tables and rows have been modified” (Microsoft.com, 2023). Within this table ‘allocated’ column records a date stamp to track changes.
+
+ - We have adopted the Row_number window function to sequentially organize results in rows where the partition clause reset for each distinct vessel. Then within each partition, the rows will be ordered by the ‘Allocated column in ascending order. We have dropped any records where ‘ArrivedAtPortDate’ is null as a data clean-up measure. 
+This data is then joined with the ‘Vessels’ table we created earlier by voyage name and respective first record in ascending order for each voyage number. This logic helps us to identify the original vessel arrived at port date recorded in the database.
+
+ - By reversing the order by criteria in the window function to descending order and joining the data to the ‘Vessels’ table, retrieving only the first record when data is organized in descending order, we can identify the current arrived-at-port date. 
+
+ - These distinct records are then added to a newly created table called ‘Vessel_ETAs’.
