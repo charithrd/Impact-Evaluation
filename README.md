@@ -152,3 +152,50 @@ SELECT v.vy_journey_no as Voyage,
  - The query results are constrained by the ‘WHERE’ clause.
  - To adhere to the 'Uniqueness' dimension of data quality, we have employed the 'GROUP BY' clause.
  - According to Kushtagi (2023), “data deduplication can be achieved using various methods, such as using the DISTINCT keyword, GROUP BY” clause.
+
+```sql
+FROM xxxx_dss.dp_itemoption as I
+        
+   INNER JOIN xxxx_dss.contract_combined as comb
+        ON ( comb.itemcode = LEFT(i.itemoption_code,6)
+        AND comb.optionno = SUBSTRING(i.itemoption_code,7, 2))
+        
+   INNER JOIN xxxx_dss.dg_country as lu 
+        ON ( comb.countryofdesp = lu.country_code)
+            
+  LEFT OUTER JOIN xxxx_dss.fm_status as s
+        ON ( comb.contractno = s.contract_no
+        AND comb.deliveryno = CAST(s.delivery_no AS INTEGER))
+            
+  LEFT OUTER JOIN xxxx_dss.fm_cnt_copts as cc
+        ON ( cc.vy_contract_no = comb.contractno
+        AND cc.vy_contract_del = comb.deliveryno
+        AND cc.vy_contract_option = comb.optionno
+                                  )
+  INNER JOIN xxxx_dss.fm_containers as c
+        ON ( c.vy_journey_seq_no = cc.vy_journey_seq_no
+        AND c.vy_container_no = cc.vy_container_no)
+            
+  LEFT OUTER JOIN xxxx_dss.fm_voyage as v
+       ON ( v.vy_journey_seq_no = c.vy_journey_seq_no )
+        
+WHERE 
+       comb.DtlTransportmode = 'S' --- S = SeaFreight
+       AND s.fm_status BETWEEN '40' AND '50'
+       AND  v.vy_arrive_loc  LIKE  'GB%'
+       
+GROUP BY 
+        v.vy_journey_no,
+        v.vy_vessel_name,
+        v.vy_arrive_loc,
+        date(v.vy_arrive_date),
+        date(comb.whsdeldate),
+        lu.country_code,
+        s.fm_status,
+        s.planned_dest_code,
+        comb.contractno,
+        comb.deliveryno,
+        c.vy_partner_cnt_no
+       
+HAVING  (SUM(comb.balleft * i.ret_sell_price) > 0 )
+```
