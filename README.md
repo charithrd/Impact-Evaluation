@@ -222,3 +222,15 @@ HAVING  (SUM(comb.balleft * i.ret_sell_price) > 0 )
 
 * Using the ‘Vessel En Route’ table created earlier, we have created an additional table called ‘Vessels’.
 * Listing distinct records of vessel Names and respective voyage numbers.
+
+
+```sql
+create or replace table Vessels
+
+select distinct
+Vessel_name,
+Voyage
+
+from Vessel_En_Route
+
+```
