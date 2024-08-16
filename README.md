@@ -335,4 +335,5 @@ d.dayname as Day_Name,
 d.findayofweek
 ```
 
-
+ - The ‘Vessel_En_Route’ table created in the first step is joined with the ‘Vessel_ETAs’ table.
+ - Additionally, integrating the 'imports.fin_dates_with_keys' table, a calendar table, facilitates the identification of the current financial week for reporting purposes.
