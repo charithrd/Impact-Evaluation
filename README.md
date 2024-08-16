@@ -108,7 +108,7 @@ Below are the metadata characteristics of the final data load to the Power BI mo
 ```sql
 create or replace table Vessel_En_Route
 
-SELECT  v.vy_journey_no as Voyage,
+SELECT v.vy_journey_no as Voyage,
        v.vy_vessel_name as Vessel_name,
        v.vy_arrive_loc as Port_Arrival_Code,
        date( v.vy_arrive_date) AS ArrivedDate,
@@ -135,3 +135,20 @@ SELECT  v.vy_journey_no as Voyage,
        c.vy_partner_cnt_no as Container_No,
        SUM(comb.balleft * i.ret_sell_price) AS RSV
 ```
+
+### 5.2 Data Manipulation
+
+ - Below manipulation steps “includes variable-by-variable transformation, as well as aggregation” (Wickham, 2014).
+ - Converting Datetime fields such as v. vy_arrive_date into a date field.
+ - A case statement converts warehouse codes in the ‘Planned_dest_code’ field into Warehouse names. 
+ - Using an array join statement ContractNo and DeliveryNo fields are concatenated into a single column. This step helps users to search warehouse deliveries easily.
+ - Retail Sales Value (RSV) – By multiplying the balance left with the retail sell price we determine the row (option) level retail value.
+ - Then Sum () function calculates the total sum of the product across all rows in the dataset. Finally, the data type is cast to an Integer (INT).
+
+### 5.3 Data Joins
+
+ - The primary data source of this project satisfies the third normal form (3NF). Chakraborty et al., 2021 claim that “3NF can reduce redundancies and anomalies from a relational database”.
+   
+ - The query results are constrained by the ‘WHERE’ clause.
+ - To adhere to the 'Uniqueness' dimension of data quality, we have employed the 'GROUP BY' clause.
+ - According to Kushtagi (2023), “data deduplication can be achieved using various methods, such as using the DISTINCT keyword, GROUP BY” clause.
