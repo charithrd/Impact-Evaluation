@@ -372,6 +372,8 @@ From Vessel_En_Route as v
 
 * In line with Driscoll (2007), the ‘What’ model project work is reflected below.
 
+ ![Driscoll What Analysis](Assests/What.PNG)
+
 #### What:
 
  - This project entails an automated business solution to calculate stock in transit allowing proactive warehouse resource planning and minimising detention and demurrage costs.
