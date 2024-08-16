@@ -7,13 +7,27 @@
 
 ## Table of Contents
 
-[Executive Summary](#Chapter-1-Executive-Summary)
+[1. Executive Summary](#Chapter-1-Executive-Summary)
 
-[Project Overview](#Chapter-2-Project-Overview)
+[2. Project Overview](#Chapter-2-Project-Overview)
 
-[ETL Pipeline](#Chapter-3-ETL-Pipeline-and-Automation)
+[2.1 Problem Statement](#21-Problem-Statement)
 
-[Data Structure](#Chapter-4-Data-Structure)
+[2.2 Solution](#22-Solution)
+
+[2.3 Impact Assessment](#23-Impact-Assessment)
+
+[3. ETL Pipeline](#Chapter-3-ETL-Pipeline-and-Automation)
+
+[4. Data Structure](#Chapter-4-Data-Structure)
+
+[5. Building the Data Model](#Chapter-5-Building-the-Data-Model)
+
+[5.1 Data Selection and Preparation](#51-Data-Selection-and-Preparation)
+
+[5.2 Data Manipulation](#52-Data-Manipulation)
+
+[5.3 Data Joins](#53-Data-Joins)
 
 
 
@@ -97,7 +111,7 @@ Below are the metadata characteristics of the final data load to the Power BI mo
 ![ETL](Assests/Metadata.png)
 
 
-> ## Chapter 5: Building the Data Model
+> ## Chapter 5 Building the Data Model
 
 ### 5.1 Data Selection and Preparation
 
