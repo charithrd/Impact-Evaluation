@@ -299,3 +299,39 @@ and Current.DescOrder = '1'
 
  - A new table is created called ‘imports. Vessel_En_Route_Master_Current_WK’.
 
+```sql
+create or replace table imports.Vessel_En_Route_Master_Current_WK
+
+Select 
+v.*,
+case When trim(Port_Arrival_Code) = 'GBFXT' then 'Felixstowe'
+     When trim(Port_Arrival_Code) = 'GBSOU' then 'Southampton'
+     When trim(Port_Arrival_Code) = 'GBTIL' then 'Tilbury'
+     When trim(Port_Arrival_Code) = 'GBLGP' then 'London Gateway'
+     When trim(Port_Arrival_Code) = 'GBTEE' then 'Teesport'
+     When trim(Port_Arrival_Code) = 'GBHUL' then 'Hull'
+     When trim(Port_Arrival_Code) = 'GBLIV' then 'Liverpool'
+     When trim(Port_Arrival_Code) = 'GBIMM' then 'Immingham'
+     When trim(Port_Arrival_Code) = 'GBMID' then 'Middlesbrough'
+     End as Arrival_Port_Name,
+ETA.OrigArrivedAtPortDate as Original_ETA,
+ETA.CurrArrivedAtPortDate as Current_ETA,
+datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) as Days_Delay
+Case When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) in (1,2,3) then '1-3 Days'
+     When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) in (4,5,6) then '4-6 Days'
+     When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) >=7 then '7+ Days'
+     When datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) < 0 then 'Early'
+     Else 'On Time' 
+     End as Days_Delay_Banding,
+,case when datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) < 0 then 'Early'
+  when datediff(CurrArrivedAtPortDate,OrigArrivedAtPortDate) = 0 then 'Not Delayed'
+  else 'Delayed' 
+  end as Days_Delayed_Flag
+,d.finWeekNo as Week_Number
+,d.FinWeekSeqNo as Week_Sequence
+,d.CurrentWeekCenteredKey
+,d.dayname as Day_Name
+,d.findayofweek
+```
+
+
