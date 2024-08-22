@@ -37,11 +37,18 @@
 
 > ## Chapter 1 Executive Summary
 
-Owing to the volatility inherent in international shipping routes, it is imperative for global retailers to accurately monitor their inventory in transit to ensure they can adequately meet customer demand.
+Owing to the volatility inherent in international shipping routes, it is imperative for global retailers to accurately monitor their inventory in transit to ensure they can meet customer demand.
 
-KPMG (2023) research states that “global and local retailers may need to review their inventory distribution network”. Furthermore, the latest statistics illustrate that “53% of ecommerce retailers find shipping and logistics processes challenging” (Meteor Space, 2022).
+KPMG (2023) research states that “global and local retailers may need to review their inventory distribution network”. 
 
-This explores Impact evaluation on an automated business project deployed in 2023, analysing vessels en route to UK ports (stock due weekly). Adhering to the Data Protection Act 2018 (Legislation.gov.uk, 2018), business data are not published and have been anonymized.
+Furthermore, the latest statistics illustrate that “53% of ecommerce retailers find shipping and logistics processes challenging” (Meteor Space, 2022).
+
+This explores Impact evaluation on an automated business solution deployed using Azure Databricks and Power BI.
+
+In a nutshell, the solution calculates stock due weekly with a view of vessel arrival movements. The precursor of this process was manual. With the automation, we have saved 312 business hours per annum ensuring data accuracy and reporting scalability in line with business growth.
+
+Adhering to the Data Protection Act 2018 (Legislation.gov.uk, 2018), business data has not been published and has been anonymized.
+
 
 > ## Chapter 2 Project Overview
 To stay competitive many retailers have moved ‘their manufacturing to low-cost countries’ (Arrigo, 2020). Landing these products on the shop floor on time involves major planning for the logistics team.
