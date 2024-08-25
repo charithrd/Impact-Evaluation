@@ -35,6 +35,12 @@
 [Bibliography](#Bibliography)
 
 
+> ## Research Topic
+
+How does implementing an automated business solution using a cloud platform impact inventory management efficiency and data accuracy in the global retail sector, particularly in response to international shipping challenges? 
+
+
+
 > ## Chapter 1 Executive Summary
 
 Owing to the volatility inherent in international shipping routes, it is imperative for global retailers to accurately monitor their inventory in transit to ensure they can meet customer demand.
