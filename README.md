@@ -2,6 +2,8 @@
 
 > ## Table of Contents
 
+[Research Topic](#Research-Topic)
+
 [1. Executive Summary](#Chapter-1-Executive-Summary)
 
 [2. Project Overview](#Chapter-2-Project-Overview)
